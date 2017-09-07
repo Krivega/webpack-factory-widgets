@@ -1,0 +1,39 @@
+{
+  "name": "Webpack Factory Widgets",
+  "version": "1.0.0",
+  "main": "app/app.js",
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git repo"
+  },
+  "keywords": [
+    "webpack",
+    "widgets"
+  ],
+  "author": "Dmitriy Krivega",
+  "license": "MIT",
+  "devDependencies": {
+    "assets-webpack-plugin": "^3.5.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-preset-env": "^1.6.0",
+    "gulp": "^3.9.1",
+    "path": "^0.12.7",
+    "require-dir": "^0.3.2",
+    "run-sequence": "^2.1.0",
+    "webpack": "^3.5.6",
+    "webpack-stream": "^4.0.0",
+    "yargs": "^8.0.2"
+  },
+  "dependencies": {
+    "express": "^4.15.4",
+    "jquery": "^3.2.1",
+    "marko": "^4.4.28"
+  }
+}

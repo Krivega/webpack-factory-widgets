@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Webpack Factory Widgets</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div>
+            <script type="application/widget+json">
+                {
+                    "widget": "CommonWidget",
+                    "data": {
+                        "1": 1
+                    }
+                }
+            </script>
+        </div>
+
+        <div>
+            <script type="application/widget+json">
+                {
+                    "widget": "LazyWidget",
+                    "data": {
+                        "2": 2
+                    }
+                }
+            </script>
+        </div>
+
+        <webpack-asset name="manifest" type="js" />
+        <webpack-asset name="vendors" type="js" />
+        <webpack-asset name="entry" type="js" />
+    </body>
+</html>
