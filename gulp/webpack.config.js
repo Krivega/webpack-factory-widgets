@@ -12,7 +12,10 @@ const ignoredRegex = /(node_modules)/;
 const vendorPatchs = ['node_modules'];
 
 function isVendor({ resource }) {
-  return resource && vendorPatchs.some((pathVendor) => resource.indexOf(pathVendor) !== -1);
+  return (
+    resource &&
+    vendorPatchs.some(pathVendor => resource.indexOf(pathVendor) !== -1)
+  );
 }
 
 const configWebpack = {
@@ -27,29 +30,42 @@ const configWebpack = {
     publicPath: '/js/'
   },
   module: {
-    rules: [{
-      test: /\.js$/,
+    rules: [
+      {
+        test: /\.js$/,
         exclude: ignoredRegex,
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              ['env', {
-                modules: false,
-                targets: {
-                  browsers: ['last 2 versions']
-                }
-              }]
-            ],
-          plugins: ['syntax-dynamic-import']
-        }
-      }]
-    }]
+        loader: 'eslint-loader',
+        enforce: 'pre'
+      },
+      {
+        test: /\.js$/,
+        exclude: ignoredRegex,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                [
+                  'env',
+                  {
+                    modules: false,
+                    targets: {
+                      browsers: ['last 2 versions']
+                    }
+                  }
+                ]
+              ],
+              plugins: ['syntax-dynamic-import']
+            }
+          }
+        ]
+      }
+    ]
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendors',
-      minChunks: isVendor,
+      minChunks: isVendor
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest'
@@ -79,7 +95,6 @@ if (isProd) {
       debug: false
     })
   );
-
 }
 
 module.exports = configWebpack;

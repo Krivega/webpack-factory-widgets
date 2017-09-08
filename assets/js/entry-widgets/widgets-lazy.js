@@ -1,5 +1,5 @@
 export default {
   LazyWidget() {
-    return import ( /* webpackChunkName: "LazyWidget" */ './lazy/widget/index');
+    return import(/* webpackChunkName: "LazyWidget" */ './lazy/widget/index');
   }
 };

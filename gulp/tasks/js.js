@@ -6,6 +6,7 @@ const webpackConfig = require('../webpack.config');
 gulp.task('js', () => {
   webpackConfig.watch = global.isWatching;
 
-  return gulpWebpack(webpackConfig, webpack)
-    .pipe(gulp.dest(webpackConfig.output.path));
+  return gulpWebpack(webpackConfig, webpack).pipe(
+    gulp.dest(webpackConfig.output.path)
+  );
 });

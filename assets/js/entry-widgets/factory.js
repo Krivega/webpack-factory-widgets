@@ -5,7 +5,6 @@ import widgetsMapCommon from './widgets-common';
 import widgetsMapLazy from './widgets-lazy';
 
 export default class {
-
   constructor() {
     this.dataWidgets = [];
     this.commonFactory = new WidgetsFactoryCommon(widgetsMapCommon);
@@ -14,8 +13,6 @@ export default class {
     this.initWidgets($('script[type="application/widget+json"]'));
 
     this.addWidgets();
-
-    this.start();
   }
 
   initWidgets($scripts) {
@@ -51,6 +48,7 @@ export default class {
   addWidgets() {
     const noCommonDataWidgets = this.addCommonWidgets(this.dataWidgets);
 
+    this.starCommonWidgets();
     this.addLazyWidgets(noCommonDataWidgets);
 
     return this;
@@ -89,7 +87,7 @@ export default class {
     return this.lazyFactory.addWidget(dataWidget);
   }
 
-  start() {
+  starCommonWidgets() {
     this.commonFactory.start();
 
     return this;

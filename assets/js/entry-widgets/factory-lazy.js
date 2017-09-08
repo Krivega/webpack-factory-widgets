@@ -1,5 +1,4 @@
 export default class {
-
   constructor(widgetsMap) {
     this.widgetsMap = widgetsMap;
   }
