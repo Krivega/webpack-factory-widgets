@@ -1,3 +1,3 @@
-import WidgetsFactory from './entry-widgets/factory';
+import WidgetsFactory from './widgets/factory';
 
 new WidgetsFactory();

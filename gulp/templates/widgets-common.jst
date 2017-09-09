@@ -1,0 +1,13 @@
+<%
+function getWidgetName(str) {
+  return str.replace(/(?:^\w|[A-Z]|\b\w|\s+)/g, function(match, index) {
+    if (+match === 0) return ''; // or if (/\s+/.test(match)) for white spaces
+    return match.toUpperCase();
+  }).replace(/_|-/g, '');
+}
+for (var widget in contents) { %>import <%- getWidgetName(widget) %> from './common/<%= widget %>/index';
+<% } %>
+export default {
+<% for (var widget in contents) { %>  <%- getWidgetName(widget) %>
+<% } %>};
+
