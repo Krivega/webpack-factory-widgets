@@ -8,7 +8,7 @@ function getWidgetName(str) {
 var widgets = Object.keys(contents);
 %>export default {
 <% for (var i = 0; i < widgets.length; i++) { %>  <%- getWidgetName(widgets[i]) %>() {
-    return import(/* webpackChunkName: "<%- getWidgetName(widgets[i]) %>" */ './lazy/<%- widgets[i] %>/index');
+    return import(/* webpackChunkName: "<%- getWidgetName(widgets[i]) %>" */ './lazy/<%- widgets[i] %>');
   }<% if (i !== widgets.length - 1) { %>,<% } %>
 <% } %>};
 

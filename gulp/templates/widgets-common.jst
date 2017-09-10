@@ -5,7 +5,7 @@ function getWidgetName(str) {
     return match.toUpperCase();
   }).replace(/_|-/g, '');
 }
-for (var widget in contents) { %>import <%- getWidgetName(widget) %> from './common/<%= widget %>/index';
+for (var widget in contents) { %>import <%- getWidgetName(widget) %> from './common/<%= widget %>';
 <% } %>
 export default {
 <% for (var widget in contents) { %>  <%- getWidgetName(widget) %>
